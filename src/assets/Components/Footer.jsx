@@ -5,7 +5,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { CiClock1 } from 'react-icons/ci';
 import { FaUsers } from "react-icons/fa";
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from 'recharts'
-
+import avtar1 from '../images/avtar1.png'
 const Footer = () => {
   // Data for the Pie Chart (Project Overview)
   const pieData = [
@@ -122,7 +122,17 @@ const Footer = () => {
 
                <div className="pt-[15px] flex justify-between">
                  <div className="flex items-center gap-[5px] text-[13px]"><div className="text-orange-400 "><CiClock1 /></div>Updated 2hr ago</div>
-                 <div className="text-orange-400"><FaUsers /></div>
+                 {/* <div className="text-orange-400"><FaUsers /></div> */}
+                 <div className="flex items-center">
+  <div className="flex">
+    <img src={avtar1} alt="Avatar" className="h-8 w-8 rounded-full border-2 border-white" />
+    <img src={avtar1} alt="Avatar 2" className="h-8 w-8 rounded-full border-2 border-white -ml-3" />
+  </div>
+  <div className=" h-8 w-8  -ml-2 bg-gray-200 text-gray-700 text-xs font-semibold px-2 py-2 rounded-full">
+    +2
+  </div>
+</div>
+
           </div>
           
           </div>
@@ -137,7 +147,18 @@ const Footer = () => {
 
                <div className="pt-[15px] flex justify-between">
                  <div className="flex items-center gap-[5px] text-[13px]"><div className="text-orange-400 "><CiClock1 /></div>Updated 5hr ago</div>
-                 <div className="text-orange-400"><FaUsers /></div>
+                 {/* <div className="text-orange-400"><FaUsers /></div> */}
+
+                 <div className="flex items-center">
+  <div className="flex">
+    <img src={avtar1} alt="Avatar" className="h-8 w-8 rounded-full border-2 border-white" />
+    <img src={avtar1} alt="Avatar 2" className="h-8 w-8 rounded-full border-2 border-white -ml-3" />
+  </div>
+  <div className=" h-8 w-8  -ml-2 bg-gray-200 text-gray-700 text-xs font-semibold px-2 py-2 rounded-full">
+    +2
+  </div>
+</div>
+
           </div>
           
           </div>

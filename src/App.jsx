@@ -15,7 +15,7 @@ function App() {
         <div className=" w-[15%] border-2">
             <Sidebar/>     
         </div>
-        <div className=" w-[85%] max-h-screen overflow-y-scroll">
+        <div className=" w-[85%] max-h-screen overflow-y-scroll horizontal-scrollbar-hide">
           <Outlet/>
         </div>
       </div>

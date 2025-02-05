@@ -4,6 +4,7 @@ import App from '../../App';
 import Overview from './Overview';
 import Home from './Home';
 import Calander from './Calander';
+import Table from './Table';
 function Routing() {
     return (
         <BrowserRouter>
@@ -13,6 +14,8 @@ function Routing() {
 
                     <Route path='/overf' element={<Overview />}></Route>
                     <Route path='/calander' element={<Calander />}></Route>
+                    <Route path='/table' element={<Table />}></Route>
+                    
                 </Route>
            
             </Routes>

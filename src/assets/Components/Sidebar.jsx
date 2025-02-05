@@ -19,7 +19,7 @@ const Sidebar = () => {
         <ul>
           <Link to={"/overf"} className="py-2 bg-orange-400 rounded flex justify-center items-center gap-[10px] text-[20px] pr-[40px]"><GrProjects />Overview</Link>
           <Link to={"/calander"} className="py-2  hover:bg-orange-400 rounded flex justify-center items-center gap-[10px] text-[20px] pr-[50px]"><SlCalender />Calender</Link>
-          <li className="py-2  hover:bg-orange-400 rounded flex justify-center items-center gap-[10px] text-[20px] pr-[65px]"><LuTicketSlash />Tickets</li>
+          <Link to={"/table"} className="py-2  hover:bg-orange-400 rounded flex justify-center items-center gap-[10px] text-[20px] pr-[65px]"><LuTicketSlash />Table</Link>
           <li className="py-2  hover:bg-orange-400 rounded flex justify-center items-center gap-[10px] text-[20px] pr-[10px]"><FaRegFolderOpen />File Manager</li>
           <li className="py-2  hover:bg-orange-400 rounded flex justify-center items-center gap-[10px] text-[20px] pr-[65px]"><CiMemoPad />Kanban</li>
           <li className="py-2  hover:bg-orange-400 rounded flex justify-center items-center gap-[10px] text-[20px] pr-[60px]"><GrProjects />Projects</li>
