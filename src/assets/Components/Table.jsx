@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaEdit, FaTrash, FaSearch, FaPlus } from "react-icons/fa";
 
 const EmployeeTable = () => {
@@ -7,13 +7,24 @@ const EmployeeTable = () => {
     { id: 2, name: "Jane Smith", designation: "UI/UX Designer", address: "Los Angeles, USA", phone: "8765432109", code: "EMP002" },
   ];
 
-  const [employees, setEmployees] = useState(initialEmployees);
+  // Load employees from localStorage or use the initial data
+  const loadEmployees = () => {
+    const storedEmployees = JSON.parse(localStorage.getItem("employees"));
+    return storedEmployees || initialEmployees;
+  };
+
+  const [employees, setEmployees] = useState(loadEmployees());
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [editingEmployee, setEditingEmployee] = useState(null);
   const [formData, setFormData] = useState({ name: "", designation: "", address: "", phone: "", code: "" });
 
   const itemsPerPage = 5;
+
+  // Update localStorage whenever employees state changes
+  useEffect(() => {
+    localStorage.setItem("employees", JSON.stringify(employees));
+  }, [employees]);
 
   // Handle Add & Edit Employee
   const handleSubmit = (e) => {
@@ -61,7 +72,7 @@ const EmployeeTable = () => {
 
   return (
     <div className="container mx-auto p-6">
-      <h2 className="text-2xl font-bold mb-4">Employee Management</h2>
+      <h2 className="text-2xl font-bold mb-4">Employee Management System</h2>
 
       {/* Search Bar */}
       <div className="flex items-center mb-4 border rounded-md px-2 py-1 w-96">
@@ -76,64 +87,69 @@ const EmployeeTable = () => {
       </div>
 
       {/* Employee Table */}
-      <table className="w-full border-collapse border border-gray-300">
-        <thead>
-          <tr className="bg-gray-200">
-            <th className="border border-gray-300 p-2">Employee Name</th>
-            <th className="border border-gray-300 p-2">Designation</th>
-            <th className="border border-gray-300 p-2">Address</th>
-            <th className="border border-gray-300 p-2">Phone No</th>
-            <th className="border border-gray-300 p-2">Emp Code</th>
-            <th className="border border-gray-300 p-2">Actions</th>
+<div className="overflow-x-auto">
+  <table className="w-full border-collapse border border-gray-300 text-xs sm:text-sm md:text-base">
+    <thead>
+      <tr className="bg-gray-200 text-[10px] sm:text-sm md:text-base">
+        <th className="border border-gray-300 p-2">Employee Name</th>
+        <th className="border border-gray-300 p-2">Designation</th>
+        <th className="border border-gray-300 p-2">Address</th>
+        <th className="border border-gray-300 p-2">Phone No</th>
+        <th className="border border-gray-300 p-2">Emp Code</th>
+        <th className="border border-gray-300 p-2">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {paginatedEmployees.length > 0 ? (
+        paginatedEmployees.map((emp) => (
+          <tr key={emp.id} className="hover:bg-gray-100 text-[10px] sm:text-sm md:text-base">
+            <td className="border border-gray-300 p-2">{emp.name}</td>
+            <td className="border border-gray-300 p-2">{emp.designation}</td>
+            <td className="border border-gray-300 p-2">{emp.address}</td>
+            <td className="border border-gray-300 p-2">{emp.phone}</td>
+            <td className="border border-gray-300 p-2">{emp.code}</td>
+            <td className="border border-gray-300 p-2 flex flex-wrap gap-2 justify-center">
+              <button className="bg-blue-500 px-2 sm:px-4 py-1 text-white rounded-md" onClick={() => handleEdit(emp)}>
+                Edit
+              </button>
+              <button className="bg-red-500 px-2 sm:px-4 py-1 text-white rounded-md" onClick={() => handleDelete(emp.id)}>
+                <FaTrash />
+              </button>
+            </td>
           </tr>
-        </thead>
-        <tbody>
-          {paginatedEmployees.length > 0 ? (
-            paginatedEmployees.map((emp) => (
-              <tr key={emp.id} className="hover:bg-gray-100">
-                <td className="border border-gray-300 p-2">{emp.name}</td>
-                <td className="border border-gray-300 p-2">{emp.designation}</td>
-                <td className="border border-gray-300 p-2">{emp.address}</td>
-                <td className="border border-gray-300 p-2">{emp.phone}</td>
-                <td className="border border-gray-300 p-2">{emp.code}</td>
-                <td className="border border-gray-300 p-2 flex gap-2">
-                  <button className="text-blue-500" onClick={() => handleEdit(emp)}>
-                    <FaEdit />
-                  </button>
-                  <button className="text-red-500" onClick={() => handleDelete(emp.id)}>
-                    <FaTrash />
-                  </button>
-                </td>
-              </tr>
-            ))
-          ) : (
-            <tr>
-              <td colSpan="6" className="text-center p-4">No employees found</td>
-            </tr>
-          )}
-        </tbody>
-      </table>
-
-      {/* Pagination (Only Show If More Than 5 Entries) */}
-      {filteredEmployees.length > itemsPerPage && (
-        <div className="flex justify-between items-center mt-4">
-          <button
-            className="px-3 py-1 bg-gray-300 rounded-md"
-            disabled={currentPage === 1}
-            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-          >
-            Prev
-          </button>
-          <span>Page {currentPage} of {totalPages}</span>
-          <button
-            className="px-3 py-1 bg-gray-300 rounded-md"
-            disabled={currentPage === totalPages}
-            onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
-          >
-            Next
-          </button>
-        </div>
+        ))
+      ) : (
+        <tr>
+          <td colSpan="6" className="text-center p-4">No employees found</td>
+        </tr>
       )}
+    </tbody>
+  </table>
+</div>
+
+{/* Pagination (Only Show If More Than 5 Entries) */}
+{filteredEmployees.length > itemsPerPage && (
+  <div className="flex justify-between items-center mt-4 text-xs sm:text-sm">
+    <button
+      className="px-2 sm:px-3 py-1 bg-blue-500 text-white rounded-md"
+      disabled={currentPage === 1}
+      onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+    >
+      Prev
+    </button>
+    <span>
+      Page {currentPage} of {totalPages}
+    </span>
+    <button
+      className="px-2 sm:px-3 py-1 bg-blue-500 text-white rounded-md"
+      disabled={currentPage === totalPages}
+      onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+    >
+      Next
+    </button>
+  </div>
+)}
+
 
       {/* Add/Edit Employee Form */}
       <form onSubmit={handleSubmit} className="mt-6 p-4 bg-gray-100 rounded-md">

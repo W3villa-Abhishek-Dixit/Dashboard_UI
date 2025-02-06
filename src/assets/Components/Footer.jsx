@@ -16,9 +16,9 @@ const Footer = () => {
   const COLORS = ['#FF6384', '#36A2EB', '#FFCE56']
 
   return (
-    <div className="h-[375px] w-full bg-gray-100 flex gap-[10px]">
+    <div className=" w-full bg-slate-100 flex  flex-wrap gap-[10px] pt-[15px] md:pt-0 px-[10px] md:px-0 ">
       {/* First Container */}
-      <div className="h-[375px] w-[540px]  rounded-[15px] ml-[30px] flex flex-col bg-white gap-4 p-4">
+      <div className="h-[375px] w-[490px]  rounded-[15px] px-[20px] md:px-0 md:ml-[30px] flex flex-col bg-white gap-4 p-4 pt-[15px] md:pt-0 pr-[20px] md:pr-0">
         {/* Header */}
         <div className="flex justify-between items-center px-[20px] py-[10px]">
           <div>Project Summary</div>
@@ -56,7 +56,7 @@ const Footer = () => {
           </div>
         </div>
         {/* Second Card: Reserved for additional data */}
-        <div className="border rounded-[15px] flex flex-col gap-[10px] px-[10px] py-[10px]">
+        <div className="border rounded-[15px] flex flex-col gap-[10px] px-[10px] py-[10px] mt-[5px] md:mt-0">
           {/* First Entry */}
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-[5px]">
@@ -87,7 +87,7 @@ const Footer = () => {
       </div>
 
       {/* Second Container: Pie Chart for Project Overview */}
-      <div className="h-[375px] w-[540px]  rounded-[15px] flex justify-center items-center bg-white p-4">
+      <div className="h-[375px] w-[490px]  rounded-[15px] flex justify-center items-center bg-white px-[25px]">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
             <Pie
@@ -110,13 +110,13 @@ const Footer = () => {
       </div>
 
       {/* Third Container */}
-      <div className="h-[375px] w-[540px]  rounded-[15px]  flex flex-col  bg-white">
+      <div className="h-[375px] w-[390px]  md:w-[510px] rounded-[15px]  flex flex-col  bg-white  ">
            <div className="flex justify-between px-[30px] items-center mt-[20px]">
                  <div className="div">Daily Task</div>
                  <div className="flex gap-[10px] justify-center items-center">Today <IoIosArrowDown /></div>
            </div>
           <div className="flex  flex-col justify-center items-center gap-[10px] mt-[10px]">
-          <div className="h-[150px] w-[490px] border rounded-[15px] flex  flex-col  px-[20px] ">
+          <div className="h-[150px] w-[350px] md:w-[480px] border rounded-[15px] flex  flex-col  px-[20px] ">
                <div className="mt-[10px]">Tiddo Mobile App Web Design</div>
                <div className="text-[12px] text-gray-500 pt-[10px]">We have to design a dashboard for <br></br> DevignEdge Design Agency.</div>
 
@@ -141,7 +141,7 @@ const Footer = () => {
 
 {/* 
           <div className="h-[150px] w-[490px] border rounded-[15px] text-[5px] "></div> */}
-          <div className="h-[150px] w-[490px] border rounded-[15px] flex  flex-col  px-[20px] ">
+          <div className="h-[150px] w-[350px] md:w-[480px] border rounded-[15px] flex  flex-col  px-[20px] ">
                <div className="mt-[10px]">Scrum Call Discussion</div>
                <div className="text-[12px] text-gray-500 pt-[10px]">We have to design a dashboard for <br></br> DevignEdge Design Agency.</div>
 

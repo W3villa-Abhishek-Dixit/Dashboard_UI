@@ -7,8 +7,8 @@ import Footer from './Footer'
 
 function Overview() {
     return (
-        <div className=" max-h-screen  w-full  ">
-            <StripHeader />
+        <div className=" min-h-full w-full bg-slate-100 ">
+            {/* <StripHeader /> */}
            
             <HeroSrction />
          

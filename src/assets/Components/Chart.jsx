@@ -55,9 +55,9 @@ const Chart = () => {
   const [selectedTimeFrame, setSelectedTimeFrame] = useState("12 Months");
 
   return (
-    <div className="h-[390px] w-full flex justify-between gap-[10px]  bg-gray-100 ">
+    <div className=" mt-[20px] px-[10px] md:px-0  md:mt-0 md:h-[390px] w-full flex flex-col md:flex-row  justify-between gap-[10px]  bg-gray-100 ">
       {/* Doughnut Chart (Pie Chart) */}
-      <div className="h-[375px] w-[480px] rounded-[15px] ml-[30px] flex flex-col justify-center items-center bg-white ">
+      <div className="h-[375px] md:w-[480px] rounded-[15px] md:ml-[30px] flex flex-col justify-center items-center bg-white ">
         <h1 className="text-green-600 text-lg font-bold pt-[50px]">Monthly Target</h1>
 
         <PieChart width={250} height={250}>
