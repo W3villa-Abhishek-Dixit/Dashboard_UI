@@ -6,10 +6,12 @@ import avtar1 from '../images/avtar1.png';
 const HeroSection = () => {
   return (
     <div className="h-auto w-full bg-gray-100 p-4">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4  ">
+        
+
         
         {/* Card 1 */}
-        <div className="h-[150px] w-full max-w-[300px] sm:max-w-[330px] md:max-w-[280px] lg:max-w-[370px] rounded-[15px] bg-white p-4 flex flex-col md:mx-[40px] lg:mx-0  ">
+        <div className="h-[150px] w-full max-w-[400px]  sm:max-w-[330px] md:max-w-[280px] lg:max-w-[370px] rounded-[15px] bg-white p-4 flex flex-col   md:mx-[60px] lg:mx-[20px] xl:mx-0   ">
           <div className="text-[16px] font-bold flex justify-between items-center">
             Project Dashboard
             <div className="text-[20px]"><HiOutlineMenu /></div>
@@ -29,7 +31,7 @@ const HeroSection = () => {
         </div>
 
         {/* Card 2 */}
-        <div className="h-[150px] w-full max-w-[300px] sm:max-w-[330px] md:max-w-[280px] lg:max-w-[370px] rounded-[15px] bg-white p-4 flex flex-col md:mx-[20px] lg:mx-0">
+        <div className="h-[150px] w-full max-w-[400px] sm:max-w-[330px] md:max-w-[280px] lg:max-w-[370px] rounded-[15px] bg-white p-4 flex flex-col  md:mx-[30px] lg:mx-[10px] xl:mx-0">
           <div className="text-[16px] font-bold flex justify-between items-center">
             Project Dashboard
             <div className="text-[20px]"><HiOutlineMenu /></div>
@@ -49,7 +51,7 @@ const HeroSection = () => {
         </div>
 
         {/* Card 3 */}
-        <div className="h-[150px] w-full max-w-[300px] sm:max-w-[330px] md:max-w-[280px] lg:max-w-[370px] rounded-[15px] bg-white p-4 flex flex-col md:mx-[40px] lg:mx-0">
+        <div className="h-[150px] w-full max-w-[400px]  sm:max-w-[330px] md:max-w-[280px] lg:max-w-[370px] rounded-[15px] bg-white p-4 flex flex-col  md:mx-[60px] lg:mx-[10px] xl:mx-0">
           <div className="text-[16px] font-bold flex justify-between items-center">
             Project Dashboard
             <div className="text-[20px]"><HiOutlineMenu /></div>
@@ -69,7 +71,7 @@ const HeroSection = () => {
         </div>
 
         {/* Card 4 */}
-        <div className="h-[150px] w-full max-w-[300px] sm:max-w-[330px] md:max-w-[280px] lg:max-w-[370px] rounded-[15px] bg-white p-4 flex flex-col md:mx-[20px] lg:mx-0 ">
+        <div className="h-[150px] w-full max-w-[400px] sm:max-w-[330px] md:max-w-[280px] lg:max-w-[370px] rounded-[15px] bg-white p-4 flex flex-col   md:mx-[30px] lg:mx-0 ">
           <div className="text-[16px] font-bold flex justify-between items-center">
             Project Dashboard
             <div className="text-[20px]"><HiOutlineMenu /></div>

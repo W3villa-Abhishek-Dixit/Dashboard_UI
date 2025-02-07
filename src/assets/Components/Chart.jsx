@@ -55,9 +55,9 @@ const Chart = () => {
   const [selectedTimeFrame, setSelectedTimeFrame] = useState("12 Months");
 
   return (
-    <div className="mt-[20px] px-4 md:px-6 w-full flex flex-col md:flex-row justify-between gap-3 md:gap-1 lg:gap-4 bg-gray-100 ">
+    <div className="mt-[20px] px-4 md:px-6 w-full flex flex-col md:flex-row justify-between gap-3 md:gap-1 lg:gap-2 bg-gray-100   xl:mx-0">
       {/* Doughnut Chart (Pie Chart) */}
-      <div className="h-auto md:h-[375px] w-full md:w-[480px] rounded-[15px] flex flex-col justify-center items-center bg-white p-4 md:mx-[40px] lg:mx-0">
+      <div className="h-auto md:h-[375px] w-full md:w-[480px] rounded-[15px] flex flex-col justify-center items-center bg-white p-4 md:ml-[50px] lg:ml-0 md:mx-[10px] lg:mx-[20px] xl:mx-0">
         <h1 className="text-green-600 text-lg font-bold">Monthly Target</h1>
 
         <PieChart width={250} height={250}>
@@ -91,7 +91,7 @@ const Chart = () => {
       </div>
 
       {/* Bar Chart with Buttons */}
-      <div className="h-auto md:h-[375px] w-full rounded-[15px] flex flex-col bg-white p-4">
+      <div className="h-auto md:h-[375px] w-full  rounded-[15px] flex flex-col bg-white p-4">
         {/* Buttons to Change Time Frame */}
         <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-4">
           {Object.keys(barDataSets).map((timeFrame) => (

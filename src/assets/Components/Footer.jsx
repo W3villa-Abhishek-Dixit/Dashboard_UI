@@ -16,9 +16,9 @@ const Footer = () => {
   const COLORS = ['#FF6384', '#36A2EB', '#FFCE56']
 
   return (
-    <div className="w-full bg-slate-100 flex flex-wrap gap-1 pt-6 px-4 md:px-0">
+    <div className="w-full bg-slate-100 flex flex-wrap gap-1 pt-6 px-4 md:px-0 ">
       {/* First Container */}
-      <div className="h-[375px] w-full md:w-[400px] xl:w-[470px] rounded-[15px] px-4 md:px-0 md:ml-[70px] lg:ml-[30px] flex flex-col bg-white gap-4 p-4 pt-6 md:pt-0">
+      <div className="h-[375px] w-full md:w-[400px] xl:w-[470px] rounded-[15px] px-4 md:px-0 md:ml-[70px] lg:ml-[36px] xl:ml-[30px]  flex flex-col bg-white gap-4 p-4 pt-6 md:pt-0">
         <div className="flex justify-between items-center px-4 py-2">
           <div className="text-sm md:text-lg font-medium">Project Summary</div>
           <div className="text-orange-400 text-lg md:text-xl">
@@ -61,7 +61,7 @@ const Footer = () => {
       </div>
 
       {/* Second Container: Pie Chart */}
-      <div className="h-[375px] w-full md:w-[400px] xl:w-[470px] rounded-[15px] flex justify-center items-center bg-white px-6 mt-4 md:mt-0 md:ml-[70px] lg:ml-[30px]">
+      <div className="h-[375px] w-full md:w-[400px] xl:w-[470px] rounded-[15px] flex justify-center items-center bg-white px-6 mt-4 md:mt-0 md:ml-[70px] lg:ml-[12px]">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
             <Pie
@@ -84,7 +84,7 @@ const Footer = () => {
       </div>
 
       {/* Third Container: Daily Tasks */}
-      <div className="h-[375px] w-full md:w-[510px] lg:mx-[30px] xl:mx-0  xl:w-[510px] rounded-[15px] flex flex-col bg-white mt-4 md:mt-0 md:ml-[70px] lg:ml-[30px]">
+      <div className="h-[375px] w-full md:w-[510px] lg:mx-[30px]   xl:w-[510px] rounded-[15px] flex flex-col bg-white mt-4 md:mt-0 md:ml-[70px] lg:ml-[150px] xl:ml-[20px]">
         <div className="flex justify-between px-8 items-center mt-6">
           <div className="text-sm md:text-lg font-medium">Daily Task</div>
           <div className="flex gap-3 justify-center items-center text-xs md:text-sm">

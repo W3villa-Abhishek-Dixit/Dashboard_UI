@@ -21,9 +21,9 @@ const StripHeader = ({ toggleSidebar }) => {
           <input
             type="text"
             placeholder="Search task"
-            className="h-[40px] w-[180px] sm:w-[380px] md:ml-[40px] lg:ml-0 pl-10 pr-4 rounded-2xl border border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="h-[40px] w-[180px] sm:w-[350px]  md:w-[280px]  md:ml-[50px] lg:ml-[50px]  pl-10 pr-4 rounded-2xl border border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-          <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
+          <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 sm:ml-0 md:ml-[50px]  lg:ml-[60px]" />
         </div>
       </div>
 
