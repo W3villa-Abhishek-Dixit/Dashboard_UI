@@ -8,7 +8,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 
 const StripHeader = ({ toggleSidebar }) => {
   return (
-    <div className="h-[80px] w-full flex justify-between items-center px-[20px]">
+    <div className="h-[80px] w-full flex justify-between items-center px-[20px] ">
       {/* Left Section - Hamburger & Search */}
       <div className="flex items-center gap-4">
         {/* Hamburger Button (Visible only on small screens) */}
@@ -21,7 +21,7 @@ const StripHeader = ({ toggleSidebar }) => {
           <input
             type="text"
             placeholder="Search task"
-            className="h-[40px] w-[240px] sm:w-[380px] pl-10 pr-4 rounded-2xl border border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="h-[40px] w-[180px] sm:w-[380px] md:ml-[40px] lg:ml-0 pl-10 pr-4 rounded-2xl border border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
         </div>

@@ -55,10 +55,10 @@ const Chart = () => {
   const [selectedTimeFrame, setSelectedTimeFrame] = useState("12 Months");
 
   return (
-    <div className=" mt-[20px] px-[10px] md:px-0  md:mt-0 md:h-[390px] w-full flex flex-col md:flex-row  justify-between gap-[10px]  bg-gray-100 ">
+    <div className="mt-[20px] px-4 md:px-6 w-full flex flex-col md:flex-row justify-between gap-3 md:gap-1 lg:gap-4 bg-gray-100 ">
       {/* Doughnut Chart (Pie Chart) */}
-      <div className="h-[375px] md:w-[480px] rounded-[15px] md:ml-[30px] flex flex-col justify-center items-center bg-white ">
-        <h1 className="text-green-600 text-lg font-bold pt-[50px]">Monthly Target</h1>
+      <div className="h-auto md:h-[375px] w-full md:w-[480px] rounded-[15px] flex flex-col justify-center items-center bg-white p-4 md:mx-[40px] lg:mx-0">
+        <h1 className="text-green-600 text-lg font-bold">Monthly Target</h1>
 
         <PieChart width={250} height={250}>
           <Tooltip />
@@ -77,7 +77,7 @@ const Chart = () => {
         </PieChart>
 
         {/* Legend */}
-        <div className="pb-[30px] flex flex-wrap justify-center gap-2">
+        <div className="pb-4 flex flex-wrap justify-center gap-2">
           {pieData.map((entry, index) => (
             <div key={index} className="flex items-center space-x-2">
               <div
@@ -91,13 +91,13 @@ const Chart = () => {
       </div>
 
       {/* Bar Chart with Buttons */}
-      <div className="h-[375px] w-full rounded-[15px] mr-[10px] flex flex-col bg-white p-5">
+      <div className="h-auto md:h-[375px] w-full rounded-[15px] flex flex-col bg-white p-4">
         {/* Buttons to Change Time Frame */}
-        <div className="flex justify-center gap-4 mb-4">
+        <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-4">
           {Object.keys(barDataSets).map((timeFrame) => (
             <button
               key={timeFrame}
-              className={`px-4 py-2 rounded-md text-sm font-semibold ${
+              className={`px-3 py-1.5 md:px-4 md:py-2 rounded-md text-sm font-semibold transition ${
                 selectedTimeFrame === timeFrame
                   ? "bg-blue-500 text-white"
                   : "bg-gray-300 text-black"
@@ -110,14 +110,14 @@ const Chart = () => {
         </div>
 
         {/* Bar Chart */}
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer width="100%" height={250}>
           <BarChart data={barDataSets[selectedTimeFrame]} margin={{ top: 20, right: 30, left: 10, bottom: 20 }}>
             <XAxis dataKey="name" />
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar dataKey="WorkingHours" fill="#337BFF" barSize={50} radius={[5, 5, 0, 0]} />
-            <Bar dataKey="Projects" fill="#FFC133" barSize={50} radius={[5, 5, 0, 0]} />
+            <Bar dataKey="WorkingHours" fill="#337BFF" barSize={40} radius={[5, 5, 0, 0]} />
+            <Bar dataKey="Projects" fill="#FFC133" barSize={40} radius={[5, 5, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
       </div>

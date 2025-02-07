@@ -6,8 +6,8 @@ import { CiClock1 } from 'react-icons/ci';
 import { FaUsers } from "react-icons/fa";
 import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 import avtar1 from '../images/avtar1.png'
+
 const Footer = () => {
-  // Data for the Pie Chart (Project Overview)
   const pieData = [
     { name: 'In Progress', value: 22 },
     { name: 'Completed', value: 10 },
@@ -16,78 +16,52 @@ const Footer = () => {
   const COLORS = ['#FF6384', '#36A2EB', '#FFCE56']
 
   return (
-    <div className=" w-full bg-slate-100 flex  flex-wrap gap-[10px] pt-[15px] md:pt-0 px-[10px] md:px-0 ">
+    <div className="w-full bg-slate-100 flex flex-wrap gap-1 pt-6 px-4 md:px-0">
       {/* First Container */}
-      <div className="h-[375px] w-[490px]  rounded-[15px] px-[20px] md:px-0 md:ml-[30px] flex flex-col bg-white gap-4 p-4 pt-[15px] md:pt-0 pr-[20px] md:pr-0">
-        {/* Header */}
-        <div className="flex justify-between items-center px-[20px] py-[10px]">
-          <div>Project Summary</div>
-          <div className='text-orange-400'>
+      <div className="h-[375px] w-full md:w-[400px] xl:w-[470px] rounded-[15px] px-4 md:px-0 md:ml-[70px] lg:ml-[30px] flex flex-col bg-white gap-4 p-4 pt-6 md:pt-0">
+        <div className="flex justify-between items-center px-4 py-2">
+          <div className="text-sm md:text-lg font-medium">Project Summary</div>
+          <div className="text-orange-400 text-lg md:text-xl">
             <FaBars />
           </div>
         </div>
-        {/* First Card: Contains both Todo App entries */}
-        <div className="border rounded-[15px] flex flex-col gap-[10px] px-[10px] py-[10px]">
-          {/* First Todo App Entry */}
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-[5px]">
-             <div className="text-orange-400"><FaRegUserCircle /></div> 
-              <div className="flex flex-col">
-                <span>Todo App</span>
-                <span>19 members</span>
+
+        {/* First Card */}
+        <div className="border rounded-[15px] flex flex-col gap-4 px-4 py-4">
+          {/* Todo App Entries */}
+          {['Todo App', 'Homies SAAS Application'].map((app, index) => (
+            <div key={index} className="flex justify-between items-center">
+              <div className="flex items-center gap-2">
+                <div className="text-orange-400 text-lg"><FaRegUserCircle /></div>
+                <div className="flex flex-col">
+                  <span className="text-sm md:text-base font-medium">{app}</span>
+                  <span className="text-xs md:text-sm text-gray-600">{index === 0 ? '19 members' : '24 members'}</span>
+                </div>
               </div>
+              <div><MdKeyboardArrowRight className="text-lg md:text-xl" /></div>
             </div>
-            <div>
-              <MdKeyboardArrowRight />
-            </div>
-          </div>
-          {/* Second Todo App Entry */}
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-[5px]">
-            <div className="text-orange-400"><FaRegUserCircle /></div> 
-              <div className="flex flex-col">
-                <span>Homies SAAS Application</span>
-                <span>24 members</span>
-              </div>
-            </div>
-            <div>
-              <MdKeyboardArrowRight />
-            </div>
-          </div>
+          ))}
         </div>
-        {/* Second Card: Reserved for additional data */}
-        <div className="border rounded-[15px] flex flex-col gap-[10px] px-[10px] py-[10px] mt-[5px] md:mt-0">
-          {/* First Entry */}
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-[5px]">
-            <div className="text-orange-400"><FaRegUserCircle /></div> 
-              <div className="flex flex-col">
-                <span>In Progress</span>
-                <span>22 project</span>
+
+        {/* Second Card */}
+        <div className="border rounded-[15px] flex flex-col gap-4 px-4 py-4 mt-2 md:mt-0">
+          {['In Progress', 'Completed'].map((status, index) => (
+            <div key={index} className="flex justify-between items-center">
+              <div className="flex items-center gap-2">
+                <div className="text-orange-400 text-lg"><FaRegUserCircle /></div>
+                <div className="flex flex-col">
+                  <span className="text-sm md:text-base font-medium">{status}</span>
+                  <span className="text-xs md:text-sm text-gray-600">{status === 'In Progress' ? '22 projects' : '10 projects'}</span>
+                </div>
               </div>
+              <div><MdKeyboardArrowRight className="text-lg md:text-xl" /></div>
             </div>
-            <div>
-              <MdKeyboardArrowRight />
-            </div>
-          </div>
-          {/* Second Entry */}
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-[5px]">
-            <div className="text-orange-400"><FaRegUserCircle /></div> 
-              <div className="flex flex-col">
-                <span>Completed</span>
-                <span>10 project</span>
-              </div>
-            </div>
-            <div>
-              <MdKeyboardArrowRight />
-            </div>
-          </div>
+          ))}
         </div>
       </div>
 
-      {/* Second Container: Pie Chart for Project Overview */}
-      <div className="h-[375px] w-[490px]  rounded-[15px] flex justify-center items-center bg-white px-[25px]">
+      {/* Second Container: Pie Chart */}
+      <div className="h-[375px] w-full md:w-[400px] xl:w-[470px] rounded-[15px] flex justify-center items-center bg-white px-6 mt-4 md:mt-0 md:ml-[70px] lg:ml-[30px]">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
             <Pie
@@ -109,62 +83,39 @@ const Footer = () => {
         </ResponsiveContainer>
       </div>
 
-      {/* Third Container */}
-      <div className="h-[375px] w-[390px]  md:w-[510px] rounded-[15px]  flex flex-col  bg-white  ">
-           <div className="flex justify-between px-[30px] items-center mt-[20px]">
-                 <div className="div">Daily Task</div>
-                 <div className="flex gap-[10px] justify-center items-center">Today <IoIosArrowDown /></div>
-           </div>
-          <div className="flex  flex-col justify-center items-center gap-[10px] mt-[10px]">
-          <div className="h-[150px] w-[350px] md:w-[480px] border rounded-[15px] flex  flex-col  px-[20px] ">
-               <div className="mt-[10px]">Tiddo Mobile App Web Design</div>
-               <div className="text-[12px] text-gray-500 pt-[10px]">We have to design a dashboard for <br></br> DevignEdge Design Agency.</div>
-
-               <div className="pt-[15px] flex justify-between">
-                 <div className="flex items-center gap-[5px] text-[13px]"><div className="text-orange-400 "><CiClock1 /></div>Updated 2hr ago</div>
-                 {/* <div className="text-orange-400"><FaUsers /></div> */}
-                 <div className="flex items-center">
-  <div className="flex">
-    <img src={avtar1} alt="Avatar" className="h-8 w-8 rounded-full border-2 border-white" />
-    <img src={avtar1} alt="Avatar 2" className="h-8 w-8 rounded-full border-2 border-white -ml-3" />
-  </div>
-  <div className=" h-8 w-8  -ml-2 bg-gray-200 text-gray-700 text-xs font-semibold px-2 py-2 rounded-full">
-    +2
-  </div>
-</div>
-
+      {/* Third Container: Daily Tasks */}
+      <div className="h-[375px] w-full md:w-[510px] lg:mx-[30px] xl:mx-0  xl:w-[510px] rounded-[15px] flex flex-col bg-white mt-4 md:mt-0 md:ml-[70px] lg:ml-[30px]">
+        <div className="flex justify-between px-8 items-center mt-6">
+          <div className="text-sm md:text-lg font-medium">Daily Task</div>
+          <div className="flex gap-3 justify-center items-center text-xs md:text-sm">
+            Today <IoIosArrowDown />
           </div>
-          
-          </div>
-
-          
-
-{/* 
-          <div className="h-[150px] w-[490px] border rounded-[15px] text-[5px] "></div> */}
-          <div className="h-[150px] w-[350px] md:w-[480px] border rounded-[15px] flex  flex-col  px-[20px] ">
-               <div className="mt-[10px]">Scrum Call Discussion</div>
-               <div className="text-[12px] text-gray-500 pt-[10px]">We have to design a dashboard for <br></br> DevignEdge Design Agency.</div>
-
-               <div className="pt-[15px] flex justify-between">
-                 <div className="flex items-center gap-[5px] text-[13px]"><div className="text-orange-400 "><CiClock1 /></div>Updated 5hr ago</div>
-                 {/* <div className="text-orange-400"><FaUsers /></div> */}
-
-                 <div className="flex items-center">
-  <div className="flex">
-    <img src={avtar1} alt="Avatar" className="h-8 w-8 rounded-full border-2 border-white" />
-    <img src={avtar1} alt="Avatar 2" className="h-8 w-8 rounded-full border-2 border-white -ml-3" />
-  </div>
-  <div className=" h-8 w-8  -ml-2 bg-gray-200 text-gray-700 text-xs font-semibold px-2 py-2 rounded-full">
-    +2
-  </div>
-</div>
-
-          </div>
-          
-          </div>
-
-          </div>
-
+        </div>
+        <div className="flex flex-col justify-center items-center gap-4 mt-4">
+          {['Tiddo Mobile App Web Design', 'Scrum Call Discussion'].map((task, index) => (
+            <div key={index} className="h-[150px] w-full md:w-[480px] xl:w-[480px] border rounded-[15px] flex flex-col px-5">
+              <div className="mt-4 text-sm md:text-base font-medium">{task}</div>
+              <div className="text-xs text-gray-500 pt-3">
+                We have to design a dashboard for DevignEdge Design Agency.
+              </div>
+              <div className="pt-4 flex justify-between items-center">
+                <div className="flex items-center gap-2 text-xs md:text-sm">
+                  <div className="text-orange-400"><CiClock1 /></div>
+                  Updated {index === 0 ? '2hr' : '5hr'} ago
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="flex">
+                    <img src={avtar1} alt="Avatar" className="h-8 w-8 rounded-full border-2 border-white" />
+                    <img src={avtar1} alt="Avatar 2" className="h-8 w-8 rounded-full border-2 border-white -ml-3" />
+                  </div>
+                  <div className="h-8 w-8 -ml-2 bg-gray-200 text-gray-700 text-xs font-semibold px-2 py-2 rounded-full">
+                    +2
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )

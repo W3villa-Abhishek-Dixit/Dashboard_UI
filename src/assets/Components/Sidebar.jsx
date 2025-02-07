@@ -17,12 +17,12 @@ const Sidebar = () => {
         <h1 className="text-4xl font-bold flex justify-center items-center text-orange-400">
           Panze
         </h1>
-        <h1 className="text-lg font-bold flex justify-center items-center mt-[30px]">DASHBOARDS</h1>
+        <h1 className="text-lg font-bold flex justify-center items-center mt-[30px] ml-[30px]">DASHBOARDS</h1>
         <nav className="mt-[10px] flex flex-col justify-center items-center">
           <ul>
             <Link
               to={"/overf"}
-              className="py-2 bg-orange-400 rounded flex justify-center items-center gap-[10px] text-[20px] pr-[40px]"
+              className="py-2 hover:bg-orange-400 rounded flex justify-center items-center gap-[10px] text-[20px] pr-[40px] "
             >
               <GrProjects /> Overview
             </Link>
@@ -34,13 +34,13 @@ const Sidebar = () => {
             </Link>
             <Link
               to={"/table"}
-              className="py-2 hover:bg-orange-400 rounded flex justify-center items-center gap-[10px] text-[20px] pr-[65px]"
+              className="py-2 hover:bg-orange-400 rounded flex justify-center items-center gap-[10px] text-[20px] pr-[85px]"
             >
               <LuTicketSlash /> Table
             </Link>
-            <li className="py-2 hover:bg-orange-400 rounded flex justify-center items-center gap-[10px] text-[20px] pr-[10px]">
-              <FaRegFolderOpen /> File Manager
-            </li>
+            <Link to={"/apidata"} className="py-2 hover:bg-orange-400 rounded flex justify-center items-center gap-[10px] text-[20px] pr-[50px]">
+              <FaRegFolderOpen /> API Data
+            </Link>
             <li className="py-2 hover:bg-orange-400 rounded flex justify-center items-center gap-[10px] text-[20px] pr-[65px]">
               <CiMemoPad /> Kanban
             </li>
@@ -51,7 +51,7 @@ const Sidebar = () => {
               <SlCalender /> Tasks
             </li>
           </ul>
-          <h1 className="text-lg font-bold flex justify-center items-center mt-[30px]">
+          <h1 className="text-lg font-bold flex justify-center items-center mt-[30px] ml-[30px]">
             ADMINISTRATOR
           </h1>
           <ul>
@@ -66,7 +66,7 @@ const Sidebar = () => {
             </li>
           </ul>
 
-          <h1 className="text-lg font-bold flex justify-center items-center mt-[30px] pr-[45px]">
+          <h1 className="text-lg font-bold flex justify-center items-center mt-[30px] pr-[45px] ml-[30px]">
             SETTINGS
           </h1>
           <ul>

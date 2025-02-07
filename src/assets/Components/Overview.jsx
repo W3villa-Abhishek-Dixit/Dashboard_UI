@@ -12,9 +12,9 @@ function Overview() {
            
             <HeroSrction />
          
-            <Chart />
+             <Chart /> 
 
-            <Footer />
+            <Footer />  
 
         </div>
     )
