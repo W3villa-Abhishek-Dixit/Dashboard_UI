@@ -72,31 +72,34 @@ const EmployeeTable = () => {
 
       {/* Modal (Placed ABOVE Table) */}
       {isModalOpen && (
-        <div className="bg-white p-6 rounded-md w-96 border shadow-md my-4">
-          <h3 className="text-lg font-semibold mb-3">{editingEmployee ? "Edit Employee" : "Add Employee"}</h3>
-          <form onSubmit={handleSubmit}>
-            {["name", "designation", "address", "phone", "code"].map((field) => (
-              <input
-                key={field}
-                type="text"
-                placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
-                className="w-full p-2 border rounded-md mb-2"
-                value={formData[field]}
-                onChange={(e) => setFormData({ ...formData, [field]: e.target.value })}
-                required
-              />
-            ))}
-            <div className="flex justify-between mt-4">
-              <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded-md">
-                {editingEmployee ? "Update Employee" : "Add Employee"}
-              </button>
-              <button type="button" className="px-4 py-2 bg-gray-500 text-white rounded-md" onClick={() => setIsModalOpen(false)}>
-                Cancel
-              </button>
-            </div>
-          </form>
+  <div className="fixed inset-0 flex items-center justify-center backdrop-blur-md">
+    <div className="bg-white p-6 rounded-md w-96 border shadow-md">
+      <h3 className="text-lg font-semibold mb-3">{editingEmployee ? "Edit Employee" : "Add Employee"}</h3>
+      <form onSubmit={handleSubmit}>
+        {["name", "designation", "address", "phone", "code"].map((field) => (
+          <input
+            key={field}
+            type="text"
+            placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
+            className="w-full p-2 border rounded-md mb-2"
+            value={formData[field]}
+            onChange={(e) => setFormData({ ...formData, [field]: e.target.value })}
+            required
+          />
+        ))}
+        <div className="flex justify-between mt-4">
+          <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded-md">
+            {editingEmployee ? "Update Employee" : "Add Employee"}
+          </button>
+          <button type="button" className="px-4 py-2 bg-gray-500 text-white rounded-md" onClick={() => setIsModalOpen(false)}>
+            Cancel
+          </button>
         </div>
-      )}
+      </form>
+    </div>
+  </div>
+)}
+
 
       {/* Search & Add Button */}
       <div className="flex justify-between items-center mb-4">
